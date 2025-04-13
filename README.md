@@ -1,54 +1,32 @@
-# React + TypeScript + Vite
+# 🛠️ ToolMorph
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ToolMorph** is an all-in-one creative web toolkit built to simplify your image and content workflow. Whether you're a designer, marketer, or just someone who wants quick creative tools, ToolMorph is here to help.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ What It Does
 
-## Expanding the ESLint configuration
+ToolMorph will eventually include a collection of powerful features like:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🎨 **Color Picker** (currently working on)  
+- 🧠 **Keyword + Title Generator** (coming soon)  
+- 🖼️ **Background Remover** (coming soon)  
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+All available in one place — fast, simple, and intuitive.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧪 Tech Stack
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Frontend: React, SASS, TypeScript, Vite
+- Backend (planned): Python (Flask/Django), or Node.js
+- Tools: OpenCV, etc.
+
+---
+
+## 📌 Future Plans
+
+- Add background remover using ML or API
+- Integrate AI keyword/title suggestions
+- Improve UI/UX with animations and themes
+- Allow users to download/export assets
