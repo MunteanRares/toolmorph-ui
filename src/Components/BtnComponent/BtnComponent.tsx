@@ -14,7 +14,7 @@ const Primarybtn = ({ children, btnType, icon }: Props) => {
             <button className={btnType}>
                 <div className="btn-contents">
                     {icon && (
-                        <FontAwesomeIcon className="fa-icon" icon={icon} />
+                        <FontAwesomeIcon className="fa-icon-btn" icon={icon} />
                     )}
                     {children}
                 </div>
