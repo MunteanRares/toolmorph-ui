@@ -1,0 +1,38 @@
+@import "../../styling/variables";
+
+.btn {
+    font: {
+        weight: 500;
+        size: 1.6rem;
+        family: inherit;
+    }
+    border: none;
+    cursor: pointer;
+    padding: 6px 24px;
+    border-radius: 3px;
+}
+
+.btn-primary {
+    @extend .btn;
+    background-color: $primaryColor;
+    color: $lightFontTextColor;
+}
+
+.btn-secondary {
+    @extend .btn;
+    background-color: transparent;
+    outline: 2px solid $tintAccentColor;
+    color: $tintAccentColor;
+}
+
+.btn-contents {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.fa-icon {
+    width: 18px;
+    height: 18px;
+    color: $tintAccentColor;
+}
