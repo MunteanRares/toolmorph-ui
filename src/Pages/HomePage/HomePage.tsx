@@ -31,14 +31,11 @@ const HomePage = () => {
                         </p>
                     </div>
                     <div className="home-btns-div">
-                        <ButtonComponent btnType="btn-primary">
+                        <ButtonComponent btnType="primary">
                             Get Started For Free
                         </ButtonComponent>
 
-                        <ButtonComponent
-                            icon={faGithub}
-                            btnType="btn-secondary"
-                        >
+                        <ButtonComponent icon={faGithub} btnType="accent">
                             GitHub Repository
                         </ButtonComponent>
                     </div>

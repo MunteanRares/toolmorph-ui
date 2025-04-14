@@ -1,17 +1,23 @@
 import { IconDefinition } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./BtnComponent.scss";
+import clsx from "clsx";
 
 interface Props {
     children: string;
-    btnType: "btn-primary" | "btn-secondary";
+    btnType: "primary" | "accent";
     icon?: IconDefinition;
 }
 
 const Primarybtn = ({ children, btnType, icon }: Props) => {
+    const btnClass = clsx({
+        "btn-primary": btnType === "primary",
+        "btn-secondary": btnType === "accent",
+    });
+
     return (
         <>
-            <button className={btnType}>
+            <button className={btnClass}>
                 <div className="btn-contents">
                     {icon && (
                         <FontAwesomeIcon className="fa-icon-btn" icon={icon} />
