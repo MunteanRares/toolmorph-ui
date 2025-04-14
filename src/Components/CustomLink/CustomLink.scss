@@ -9,10 +9,34 @@
     color: $darkFontTextColor;
 }
 
-.fa-icon {
-    color: $darkFontTextColor;
+@mixin icon-color($iconColor) {
+    color: $iconColor;
     width: 14px;
     height: 14px;
     margin-top: 4px;
     margin-left: 6px;
+}
+
+.fa-icon {
+    @include icon-color($darkFontTextColor);
+}
+
+.fa-icon--light {
+    @include icon-color($lightFontTextColor);
+}
+
+@mixin filled-link($bgColor) {
+    @extend .link;
+    padding: 0.6rem 2rem;
+    background-color: $bgColor;
+    border-radius: 4px;
+    color: $lightFontTextColor;
+}
+
+.filled-link--accent {
+    @include filled-link($tintAccentColor);
+}
+
+.filled-link--primary {
+    @include filled-link($primaryColor);
 }

@@ -19,6 +19,7 @@ const Navbar = () => {
                     </div>
 
                     <CustomLink
+                        filled="accent"
                         icon={faChevronRight}
                         iconPosition="after"
                         href="#"
