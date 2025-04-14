@@ -3,8 +3,9 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 8px 24px;
+    padding: 12px 24px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.08);
+    height: $navbarHeight;
 }
 
 .logo-div {
@@ -14,13 +15,12 @@
 }
 
 .logo-image {
-    width: 3.6rem;
+    width: 4.2rem;
 }
 
 .logo-name {
-    font-size: 2rem;
+    font-size: $logoFontSize;
     font-weight: 500;
-    color: $darkFontTextColor;
 }
 
 .links-div {

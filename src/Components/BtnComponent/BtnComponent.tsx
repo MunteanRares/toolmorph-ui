@@ -1,6 +1,6 @@
 import { IconDefinition } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./BtnComponents.scss";
+import "./BtnComponent.scss";
 
 interface Props {
     children: string;

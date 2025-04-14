@@ -1,7 +1,9 @@
 @use "../../styling/variables" as *;
 
 .link {
-    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    font-size: $baseFontSize;
     font-weight: 500;
     text-decoration: none;
     color: $darkFontTextColor;
