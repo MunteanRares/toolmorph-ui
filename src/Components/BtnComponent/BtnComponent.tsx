@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./BtnComponent.scss";
 import clsx from "clsx";
 import { motion } from "motion/react";
-import { durationAmount } from "../../styling/constants";
 
 interface Props {
     children: string;

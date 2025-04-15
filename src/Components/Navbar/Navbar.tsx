@@ -4,12 +4,19 @@ import CustomLink from "../CustomLink/CustomLink";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "motion/react";
 import { durationAmount, transformAmount } from "../../styling/constants";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+    const navigate = useNavigate();
+    const handleGoHome = () => {
+        navigate("/colorPicker");
+    };
+
     return (
         <>
             <nav className="navbar">
                 <motion.div
+                    onClick={handleGoHome}
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ duration: 0.4, type: "spring" }}
@@ -44,6 +51,7 @@ const Navbar = () => {
 
                 <div className="links-div">
                     <div className="default-links">
+                        <CustomLink href="/">Home</CustomLink>
                         <CustomLink href="#">GitHub</CustomLink>
                         <CustomLink href="#">Color Picker</CustomLink>
                     </div>

@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { durationAmount, transformAmount } from "./constants";
+import { durationAmount } from "./constants";
 
 export const MotionSlide = ({
     children,
@@ -41,33 +41,31 @@ export const SplitTextWrapper = ({
     return (
         <span className={className}>
             {words.map((word, wordIndex) => (
-                <>
-                    <span
-                        style={{
-                            display: "inline-block",
-                            wordBreak: "break-word",
-                        }}
-                        className={className}
-                        key={wordIndex}
-                    >
-                        {word.split("").map((letter, indexLetter) => (
-                            <motion.span
-                                key={`${wordIndex}-${indexLetter}`}
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{
-                                    duration: durationAmount.transformQuick,
-                                    type: "spring",
-                                    delay: wordIndex * 0.2 + indexLetter * 0.02,
-                                }}
-                                style={{ display: "inline-block" }}
-                            >
-                                {letter}
-                            </motion.span>
-                        ))}
-                    </span>
-                    <span> </span>
-                </>
+                <span
+                    style={{
+                        display: "inline-block",
+                        wordBreak: "break-word",
+                    }}
+                    className={className}
+                    key={wordIndex}
+                >
+                    {word.split("").map((letter, indexLetter) => (
+                        <motion.span
+                            key={`${wordIndex}-${indexLetter}`}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: durationAmount.transformQuick,
+                                type: "spring",
+                                delay: wordIndex * 0.2 + indexLetter * 0.02,
+                            }}
+                            style={{ display: "inline-block" }}
+                        >
+                            {letter}
+                        </motion.span>
+                    ))}
+                    <span>{"\u00A0"}</span>
+                </span>
             ))}
         </span>
     );

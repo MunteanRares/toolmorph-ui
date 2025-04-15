@@ -1,11 +1,9 @@
 import ButtonComponent from "../../Components/BtnComponent/BtnComponent.tsx";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import Navbar from "../../Components/Navbar/Navbar";
 import "./HomePage.scss";
 import layeredWaves from "../../assets/Images/layered-waves-haikei (1).webp";
 import { faMendeley } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion } from "motion/react";
 import { durationAmount, transformAmount } from "../../styling/constants.ts";
 import {
     MotionSlide,
@@ -15,7 +13,6 @@ import {
 const HomePage = () => {
     return (
         <>
-            <Navbar />
             <section className="home-section">
                 <div className="home-contents-div">
                     <div className="home-title-div">
