@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 import { motion, Variants } from "motion/react";
 import { durationAmount } from "../../styling/constants";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
-    href: string;
+    navigateTo: string;
+    isExternalLink?: boolean;
     children?: string;
     icon?: IconDefinition;
     iconPosition?: "before" | "after";
@@ -14,11 +16,12 @@ interface Props {
 }
 
 const Link = ({
-    href,
     children,
     icon,
     iconPosition = "before",
     filled,
+    navigateTo,
+    isExternalLink = false,
 }: Props) => {
     const linkClass = clsx({
         link: !filled,
@@ -30,6 +33,11 @@ const Link = ({
         "fa-icon": !filled,
         "fa-icon--light": filled,
     });
+
+    const navigate = useNavigate();
+    const handleOnClick = () => {
+        navigate(navigateTo);
+    };
 
     const variants: Variants = {
         initial: { opacity: 0 },
@@ -55,6 +63,7 @@ const Link = ({
     return (
         <>
             <motion.a
+                {...(!isExternalLink && { onClick: handleOnClick })}
                 variants={variants}
                 initial="initial"
                 animate="animate"
@@ -63,7 +72,7 @@ const Link = ({
                     ? { whileHover: "hoverBasic" }
                     : { whileHover: "hoverFilled" })}
                 className={linkClass}
-                href={href}
+                {...(isExternalLink && { href: navigateTo })}
             >
                 {icon && iconPosition == "before" && (
                     <FontAwesomeIcon className={iconClass} icon={icon} />

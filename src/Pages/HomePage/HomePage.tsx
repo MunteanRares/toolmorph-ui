@@ -9,6 +9,7 @@ import {
     MotionSlide,
     SplitTextWrapper,
 } from "../../styling/AnimationWrappers.tsx";
+import Navbar from "../../Components/Navbar/Navbar.tsx";
 
 const HomePage = () => {
     return (

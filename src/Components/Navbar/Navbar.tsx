@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
     const navigate = useNavigate();
     const handleGoHome = () => {
-        navigate("/colorPicker");
+        navigate("/");
     };
 
     return (
@@ -51,16 +51,23 @@ const Navbar = () => {
 
                 <div className="links-div">
                     <div className="default-links">
-                        <CustomLink href="/">Home</CustomLink>
-                        <CustomLink href="#">GitHub</CustomLink>
-                        <CustomLink href="#">Color Picker</CustomLink>
+                        <CustomLink navigateTo="/">Home</CustomLink>
+                        <CustomLink
+                            isExternalLink={true}
+                            navigateTo="https://github.com/MunteanRares/ToolMorphUI"
+                        >
+                            GitHub
+                        </CustomLink>
+                        <CustomLink navigateTo="/colorPicker">
+                            Color Picker
+                        </CustomLink>
                     </div>
 
                     <CustomLink
+                        navigateTo="/"
                         filled="accent"
                         icon={faChevronRight}
                         iconPosition="after"
-                        href="#"
                     >
                         Get Started
                     </CustomLink>

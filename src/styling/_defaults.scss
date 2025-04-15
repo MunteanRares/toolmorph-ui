@@ -1,4 +1,4 @@
-@import "../styling/variables";
+@use "../styling/variables" as *;
 $globalFontFamily: "Plus Jakarta Sans", sans-serif;
 
 * {
@@ -22,6 +22,6 @@ body {
 
 .section {
     height: calc(100vh - $navbarHeight);
-    max-width: 120rem;
-    margin: auto;
+    // max-width: 120rem;
+    // margin: auto;
 }

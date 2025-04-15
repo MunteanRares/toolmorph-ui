@@ -1,4 +1,4 @@
-@import "../../styling/variables";
+@use "../../styling/variables" as *;
 
 .home-btns-div {
     display: flex;
