@@ -2,6 +2,8 @@ import { IconDefinition } from "@fortawesome/free-brands-svg-icons";
 import "./CustomLink.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
+import { motion, Variants } from "motion/react";
+import { durationAmount } from "../../styling/constants";
 
 interface Props {
     href: string;
@@ -29,9 +31,40 @@ const Link = ({
         "fa-icon--light": filled,
     });
 
+    const variants: Variants = {
+        initial: { opacity: 0 },
+        animate: {
+            opacity: 1,
+            transition: { duration: durationAmount.transformLong },
+        },
+        tap: {
+            scale: 0.97,
+            transition: { duration: 0.2 },
+        },
+        hoverFilled: {
+            scale: 1.05,
+            transition: { duration: 0.2 },
+        },
+        hoverBasic: {
+            scale: 1.05,
+            transition: { duration: 0.2 },
+            color: "#5f3dc4",
+        },
+    };
+
     return (
         <>
-            <a className={linkClass} href={href}>
+            <motion.a
+                variants={variants}
+                initial="initial"
+                animate="animate"
+                whileTap="tap"
+                {...(!filled
+                    ? { whileHover: "hoverBasic" }
+                    : { whileHover: "hoverFilled" })}
+                className={linkClass}
+                href={href}
+            >
                 {icon && iconPosition == "before" && (
                     <FontAwesomeIcon className={iconClass} icon={icon} />
                 )}
@@ -39,7 +72,7 @@ const Link = ({
                 {icon && iconPosition == "after" && (
                     <FontAwesomeIcon className={iconClass} icon={icon} />
                 )}
-            </a>
+            </motion.a>
         </>
     );
 };

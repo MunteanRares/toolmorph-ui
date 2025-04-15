@@ -3,10 +3,11 @@
 .link {
     display: flex;
     align-items: center;
-    font-size: $baseFontSize;
     font-weight: 500;
     text-decoration: none;
     color: $darkFontTextColor;
+
+    transition: background-color 0.4s;
 }
 
 @mixin icon-color($iconColor) {
@@ -27,10 +28,15 @@
 
 @mixin filled-link($bgColor) {
     @extend .link;
-    padding: 0.6rem 2rem;
+    font-size: $buttonFontSize;
+    padding: 6px 24px;
     background-color: $bgColor;
     border-radius: 4px;
     color: $lightFontTextColor;
+
+    &:hover {
+        background-color: $tintHoverColor;
+    }
 }
 
 .filled-link--accent {

@@ -6,12 +6,15 @@
     padding: 12px 24px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.08);
     height: $navbarHeight;
+
+    overflow: hidden;
 }
 
 .logo-div {
     display: flex;
     align-items: center;
     gap: 0.8rem;
+    cursor: pointer;
 }
 
 .logo-image {

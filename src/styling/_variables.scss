@@ -2,13 +2,21 @@
 $primaryColor: #5f3dc4;
 $tintAccentColor: #8c74d5;
 
+$tintHoverColor: #7f64d0;
+
 $darkFontTextColor: #333;
 $lightFontTextColor: #f2f2f2;
 $lowContrastFont: #666;
 
 // Font
+$buttonFontSize: 1.6rem;
 $baseFontSize: 1.8rem;
 $logoFontSize: 2.4rem;
+$headingFontSize: 7.4rem;
 
 // General
 $navbarHeight: 6.4rem;
+
+// Animations
+$xSmallTransformAmount: -50;
+$defaultTransition: all 0.4s ease-out;

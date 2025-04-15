@@ -3,7 +3,7 @@
 @mixin btn($bgColor, $fontColor) {
     font: {
         weight: 500;
-        size: 1.6rem;
+        size: $buttonFontSize;
         family: inherit;
     }
     border: none;
@@ -12,15 +12,30 @@
     border-radius: 3px;
     background-color: $bgColor;
     color: $fontColor;
+
+    transition: $defaultTransition;
 }
 
 .btn-primary {
     @include btn($primaryColor, $lightFontTextColor);
+
+    &:hover {
+        background-color: $tintHoverColor;
+    }
 }
 
 .btn-secondary {
     @include btn(transparent, $tintAccentColor);
     box-shadow: inset 0 0 0 2px $tintAccentColor;
+
+    &:hover {
+        background-color: $tintHoverColor;
+        color: $lightFontTextColor;
+
+        .fa-icon-btn {
+            color: $lightFontTextColor;
+        }
+    }
 }
 
 .btn-contents {
@@ -33,4 +48,6 @@
     width: 18px;
     height: 18px;
     color: $tintAccentColor;
+
+    transition: $defaultTransition;
 }

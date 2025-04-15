@@ -5,6 +5,12 @@ import "./HomePage.scss";
 import layeredWaves from "../../assets/Images/layered-waves-haikei (1).webp";
 import { faMendeley } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "motion/react";
+import { durationAmount, transformAmount } from "../../styling/constants.ts";
+import {
+    MotionSlide,
+    SplitTextWrapper,
+} from "../../styling/AnimationWrappers.tsx";
 
 const HomePage = () => {
     return (
@@ -14,30 +20,59 @@ const HomePage = () => {
                 <div className="home-contents-div">
                     <div className="home-title-div">
                         <div className="accent-div">
-                            <FontAwesomeIcon
+                            <MotionSlide
+                                x={transformAmount.slideSmallLeft}
+                                duration={durationAmount.transformLong}
+                            >
+                                <FontAwesomeIcon
+                                    className="accent-text"
+                                    icon={faMendeley}
+                                />
+                            </MotionSlide>
+
+                            <MotionSlide
+                                x={transformAmount.slideMediumLeft}
+                                duration={durationAmount.transformLong}
                                 className="accent-text"
-                                icon={faMendeley}
-                            />
-                            <p className="accent-text">Morph your flow</p>
+                            >
+                                <p>Morph your flow</p>
+                            </MotionSlide>
                         </div>
-                        <h1 className="home-header">
+
+                        <SplitTextWrapper className="home-header">
                             Effortless Tools for Inspired Minds
-                        </h1>
-                        <p className="home-description">
-                            Fast, powerful tools for color picking, background
-                            removal, keyword generation, and more - all in one
-                            place with{" "}
-                            <span className="accent-text">ToolMorph</span>.
-                        </p>
+                        </SplitTextWrapper>
+
+                        <MotionSlide
+                            duration={durationAmount.transformLong}
+                            y={transformAmount.slideSmallBottom}
+                        >
+                            <div className="home-description">
+                                Fast, powerful tools for color picking,
+                                background removal, keyword generation, and more
+                                - all in one place with{" "}
+                                <span className="accent-text">ToolMorph</span>.
+                            </div>
+                        </MotionSlide>
                     </div>
                     <div className="home-btns-div">
-                        <ButtonComponent btnType="primary">
-                            Get Started For Free
-                        </ButtonComponent>
+                        <MotionSlide
+                            duration={durationAmount.transformQuick}
+                            x={transformAmount.slideSmallLeft}
+                        >
+                            <ButtonComponent btnType="primary">
+                                Get Started For Free
+                            </ButtonComponent>
+                        </MotionSlide>
 
-                        <ButtonComponent icon={faGithub} btnType="accent">
-                            GitHub Repository
-                        </ButtonComponent>
+                        <MotionSlide
+                            duration={durationAmount.transformLong}
+                            x={transformAmount.slideMediumLeft}
+                        >
+                            <ButtonComponent icon={faGithub} btnType="accent">
+                                GitHub Repository
+                            </ButtonComponent>
+                        </MotionSlide>
                     </div>
                 </div>
 
