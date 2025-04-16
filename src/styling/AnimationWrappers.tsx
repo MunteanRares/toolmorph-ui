@@ -57,7 +57,7 @@ export const SplitTextWrapper = ({
                             transition={{
                                 duration: durationAmount.transformQuick,
                                 type: "spring",
-                                delay: wordIndex * 0.2 + indexLetter * 0.02,
+                                delay: wordIndex * 0.15 + indexLetter * 0.02,
                             }}
                             style={{ display: "inline-block" }}
                         >

@@ -58,8 +58,8 @@ const Navbar = () => {
                         >
                             GitHub
                         </CustomLink>
-                        <CustomLink navigateTo="/colorPicker">
-                            Color Picker
+                        <CustomLink navigateTo="/palette-extractor">
+                            Palette Extractor
                         </CustomLink>
                     </div>
 
