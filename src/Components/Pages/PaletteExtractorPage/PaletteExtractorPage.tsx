@@ -1,9 +1,9 @@
 import "./PaletteExtractorPage.scss";
 import { motion } from "motion/react";
-import { basicOpacityAnimation } from "../../styling/constants";
-import { SplitTextWrapper } from "../../styling/AnimationWrappers";
-import BackgroundWave from "../../Components/BackgroundWave/BackgroundWave";
-import UploadImageArea from "../../Components/UploadImageArea/UploadImageArea";
+import { basicOpacityAnimation } from "../../../styling/constants";
+import { SplitTextWrapper } from "../../../styling/AnimationWrappers";
+import BackgroundWave from "../../BackgroundWave/BackgroundWave";
+import UploadImageArea from "../../UploadImageArea/UploadImageArea";
 
 const PaletteExtractorPage = () => {
     return (

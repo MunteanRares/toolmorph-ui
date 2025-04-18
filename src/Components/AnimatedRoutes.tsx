@@ -1,6 +1,6 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import HomePage from "../Pages/HomePage/HomePage";
-import PaletteExtractorPage from "../Pages/PaletteExtractorPage/PaletteExtractorPage";
+import HomePage from "../Components/Pages/HomePage/HomePage";
+import PaletteExtractorPage from "../Components/Pages/PaletteExtractorPage/PaletteExtractorPage";
 
 const AnimatedRoutes = () => {
     const location = useLocation();

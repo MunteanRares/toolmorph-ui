@@ -1,15 +1,14 @@
-import ButtonComponent from "../../Components/BtnComponent/BtnComponent.tsx";
+import ButtonComponent from "../../BtnComponent/BtnComponent.tsx";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import "./HomePage.scss";
-import layeredWaves from "../../assets/Images/layered-waves-haikei (1).webp";
+import layeredWaves from "../../../assets/Images/layered-waves-haikei (1).webp";
 import { faMendeley } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { durationAmount, transformAmount } from "../../styling/constants.ts";
+import { durationAmount, transformAmount } from "../../../styling/constants.ts";
 import {
     MotionSlide,
     SplitTextWrapper,
-} from "../../styling/AnimationWrappers.tsx";
-import Navbar from "../../Components/Navbar/Navbar.tsx";
+} from "../../../styling/AnimationWrappers.tsx";
 
 const HomePage = () => {
     return (
