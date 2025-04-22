@@ -10,27 +10,25 @@ const useExtractPalette = () => {
     const [error, setError] = useState("");
     const [data, setData] = useState<PaletteResponse>();
 
-    const fetchExtractPalette = (file: File) => {
+    const fetchExtractPalette = async (file: File) => {
         setLoading(true);
         const formData = new FormData();
         formData.append("file", file);
-        apiBase
-            .post("/api/ImageProcessing/extract-palette", formData, {
-                headers: { "Content-Type": "multipart/form-data" },
-            })
-            .then((response) => {
-                setData(response.data);
-                console.log(data);
-                setLoading(false);
-                setError("");
-            })
-            .catch((err) => {
-                setError(err.message);
-                setLoading(false);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
+        try {
+            const response = await apiBase.post(
+                "/api/ImageProcessing/extract-palette",
+                formData,
+                {
+                    headers: { "Content-Type": "multipart/form-data" },
+                }
+            );
+            setData(response.data);
+            setError("");
+        } catch (err: any) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return { data, isLoading, error, fetchExtractPalette };

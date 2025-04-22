@@ -12,8 +12,3 @@ export const durationAmount = {
     transformQuick: 0.6,
     transformLong: 1.2,
 };
-
-export const basicOpacityAnimation: Variants = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-};

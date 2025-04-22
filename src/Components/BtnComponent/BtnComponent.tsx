@@ -31,7 +31,7 @@ const Primarybtn = ({ children, btnType, icon }: Props) => {
                                 icon={icon}
                             />
                         )}
-                        {children}
+                        <p>{children}</p>
                     </div>
                 </button>
             </motion.div>

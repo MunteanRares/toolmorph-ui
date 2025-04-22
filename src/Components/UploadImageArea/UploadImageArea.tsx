@@ -1,18 +1,20 @@
 import { motion } from "framer-motion"; // Make sure you import from 'framer-motion'
 import { LuImageUp } from "react-icons/lu";
-import { basicOpacityAnimation, durationAmount } from "../../styling/constants";
+import { durationAmount } from "../../styling/constants";
 import { FileRejection, useDropzone } from "react-dropzone";
 import "./UploadImageArea.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import useExtractPalette from "../../hooks/useExtractPalette";
-import { div } from "motion/react-client";
+import { basicOpacityVariant } from "../../styling/animationVariants";
 
-const UploadImageArea = () => {
+interface Props {
+    fetchData: (file: File) => void;
+}
+
+const UploadImageArea = ({ fetchData }: Props) => {
     const [uploadError, setUploadError] = useState("");
     const [acceptedImage, setAcceptedImage] = useState<File>();
     const [imageLoading, setImageLoading] = useState(true);
-    const { data, error, isLoading, fetchExtractPalette } = useExtractPalette();
 
     const onDrop = (acceptedFiles: File[], fileRejections: FileRejection[]) => {
         if (fileRejections.length > 0) {
@@ -20,8 +22,8 @@ const UploadImageArea = () => {
         } else if (acceptedFiles.length > 0) {
             const file = acceptedFiles[0];
             setImageLoading(true);
-            setAcceptedImage(acceptedFiles[0]);
-            fetchExtractPalette(file);
+            setAcceptedImage(file);
+            fetchData(file);
         }
     };
 
@@ -51,7 +53,7 @@ const UploadImageArea = () => {
                     onLoad={() => setImageLoading(false)}
                     className="dropped-image"
                     src={URL.createObjectURL(acceptedImage)}
-                />
+                ></motion.img>
             ) : (
                 <>
                     <motion.div
@@ -62,14 +64,14 @@ const UploadImageArea = () => {
                     </motion.div>
 
                     <motion.p
-                        variants={basicOpacityAnimation}
+                        variants={basicOpacityVariant}
                         initial="initial"
                         animate="animate"
                     >
                         Drag and Drop Your Image Here
                     </motion.p>
                     <motion.p
-                        variants={basicOpacityAnimation}
+                        variants={basicOpacityVariant}
                         initial="initial"
                         animate="animate"
                         className="select-image-text"
@@ -79,12 +81,6 @@ const UploadImageArea = () => {
                     </motion.p>
                 </>
             )}
-            {error && <p>{error}</p>}
-            {data?.palettes.map((color, index) => (
-                <div key={index} style={{ backgroundColor: color }}>
-                    {color}
-                </div>
-            ))}
 
             <input {...getInputProps()} multiple={false} />
         </div>

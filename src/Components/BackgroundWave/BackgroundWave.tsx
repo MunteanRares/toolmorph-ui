@@ -12,9 +12,10 @@ const BackgroundWave = () => {
     };
 
     const waveVariants: Variants = {
-        initial: { opacity: 0, y: transformAmount.slideSmallBottom },
+        initial: { opacity: 0, y: -20 },
         animate: { opacity: 1, y: 0 },
     };
+
     return (
         <motion.div
             variants={containerVariants}
