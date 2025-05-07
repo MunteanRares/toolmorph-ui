@@ -25,6 +25,7 @@ const PaletteExtractorPage = () => {
     const timeoutRef = useRef<number | null>(null);
 
     const [copiedColor, setcopiedColor] = useState<string | null>(null);
+    const [uploadedFile, setUploadedFile] = useState<File>();
 
     const handleCopyHex = (colorHex: string) => {
         navigator.clipboard.writeText(colorHex);
@@ -38,6 +39,10 @@ const PaletteExtractorPage = () => {
         timeoutRef.current = window.setTimeout(() => {
             setcopiedColor(null);
         }, 1000);
+    };
+
+    const handleOnRetake = () => {
+        fetchExtractPalette(uploadedFile);
     };
 
     return (
@@ -57,7 +62,10 @@ const PaletteExtractorPage = () => {
                     </motion.p>
 
                     <div className="upload-card">
-                        <UploadImageArea fetchData={fetchExtractPalette} />
+                        <UploadImageArea
+                            setFile={setUploadedFile}
+                            fetchData={fetchExtractPalette}
+                        />
                         <div className="palette-result">
                             <div className="palette-top-div">
                                 <motion.p
@@ -130,7 +138,11 @@ const PaletteExtractorPage = () => {
                             </div>
 
                             <div className="palette-bottom-div">
-                                <BtnComponent btnType="primary">
+                                <BtnComponent
+                                    isEnabled={isLoadingPalette}
+                                    btnType="primary"
+                                    onClick={handleOnRetake}
+                                >
                                     Retake
                                 </BtnComponent>
                             </div>

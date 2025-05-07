@@ -5,12 +5,14 @@ import clsx from "clsx";
 import { motion } from "motion/react";
 
 interface Props {
+    onClick?: () => void;
+    isEnabled?: boolean;
     children: string;
     btnType: "primary" | "accent";
     icon?: IconDefinition;
 }
 
-const Primarybtn = ({ children, btnType, icon }: Props) => {
+const Primarybtn = ({ onClick, isEnabled, children, btnType, icon }: Props) => {
     const btnClass = clsx({
         "btn-primary": btnType === "primary",
         "btn-secondary": btnType === "accent",
@@ -23,7 +25,11 @@ const Primarybtn = ({ children, btnType, icon }: Props) => {
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.2 }}
             >
-                <button className={btnClass}>
+                <button
+                    disabled={isEnabled}
+                    onClick={onClick}
+                    className={btnClass}
+                >
                     <div className="btn-contents">
                         {icon && (
                             <FontAwesomeIcon

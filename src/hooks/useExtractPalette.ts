@@ -10,10 +10,10 @@ const useExtractPalette = () => {
     const [error, setError] = useState("");
     const [data, setData] = useState<PaletteResponse>();
 
-    const fetchExtractPalette = async (file: File) => {
+    const fetchExtractPalette = async (file?: File) => {
         setLoading(true);
         const formData = new FormData();
-        formData.append("file", file);
+        if (file) formData.append("file", file);
         try {
             const response = await apiBase.post(
                 "/api/ImageProcessing/extract-palette",

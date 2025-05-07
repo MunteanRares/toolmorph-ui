@@ -9,9 +9,10 @@ import { basicOpacityVariant } from "../../styling/animationVariants";
 
 interface Props {
     fetchData: (file: File) => void;
+    setFile: (file: File) => void;
 }
 
-const UploadImageArea = ({ fetchData }: Props) => {
+const UploadImageArea = ({ setFile, fetchData }: Props) => {
     const [uploadError, setUploadError] = useState("");
     const [acceptedImage, setAcceptedImage] = useState<File>();
     const [imageLoading, setImageLoading] = useState(true);
@@ -24,6 +25,7 @@ const UploadImageArea = ({ fetchData }: Props) => {
             setImageLoading(true);
             setAcceptedImage(file);
             fetchData(file);
+            setFile(file);
         }
     };
 
