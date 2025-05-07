@@ -12,7 +12,13 @@ interface Props {
     icon?: IconDefinition;
 }
 
-const Primarybtn = ({ onClick, isEnabled, children, btnType, icon }: Props) => {
+const Primarybtn = ({
+    onClick,
+    isEnabled = true,
+    children,
+    btnType,
+    icon,
+}: Props) => {
     const btnClass = clsx({
         "btn-primary": btnType === "primary",
         "btn-secondary": btnType === "accent",
