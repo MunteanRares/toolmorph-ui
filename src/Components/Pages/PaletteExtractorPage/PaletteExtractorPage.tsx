@@ -1,6 +1,5 @@
 import "./PaletteExtractorPage.scss";
-import { AnimatePresence, motion, Variants } from "motion/react";
-import { transformAmount } from "../../../styling/constants";
+import { AnimatePresence, motion } from "motion/react";
 import { SplitTextWrapper } from "../../../styling/AnimationWrappers";
 import BackgroundWave from "../../BackgroundWave/BackgroundWave";
 import UploadImageArea from "../../UploadImageArea/UploadImageArea";

@@ -1,37 +1,37 @@
 import { useState } from "react";
 import apiBase from "../services/apiBase";
 
-export interface PaletteResponse {
-    palettes: string[];
-}
-
-const useExtractPalette = () => {
+const useRemoveBackground = () => {
     const [isLoading, setLoading] = useState(false);
     const [error, setError] = useState("");
-    const [data, setData] = useState<PaletteResponse>();
+    const [data, setData] = useState<string | null>(null);
 
-    const fetchExtractPalette = async (file?: File) => {
+    const fetchRemoveBackground = async (file?: File) => {
         setLoading(true);
         const formData = new FormData();
         if (file) formData.append("file", file);
+
         try {
             const response = await apiBase.post(
-                "/api/ImageProcessing/extract-palette",
+                "/api/ImageProcessing/background-remover",
                 formData,
                 {
                     headers: { "Content-Type": "multipart/form-data" },
+                    responseType: "blob",
                 }
             );
-            setData(response.data);
-            setError("");
+
+            const blob = new Blob([response.data], { type: "image/png" });
+            const url = URL.createObjectURL(blob);
+            setData(url);
         } catch (err: any) {
-            setError(err.message);
+            setError(error);
         } finally {
             setLoading(false);
         }
     };
 
-    return { data, isLoading, error, fetchExtractPalette };
+    return { isLoading, error, data, fetchRemoveBackground };
 };
 
-export default useExtractPalette;
+export default useRemoveBackground;

@@ -54,9 +54,12 @@ const Navbar = () => {
                         <CustomLink navigateTo="/">Home</CustomLink>
                         <CustomLink
                             isExternalLink={true}
-                            navigateTo="https://github.com/MunteanRares/ToolMorphUI"
+                            navigateTo="https://github.com/MunteanRares/toolmorph"
                         >
                             GitHub
+                        </CustomLink>
+                        <CustomLink navigateTo="/background-remover">
+                            Background Remover
                         </CustomLink>
                         <CustomLink navigateTo="/palette-extractor">
                             Palette Extractor
