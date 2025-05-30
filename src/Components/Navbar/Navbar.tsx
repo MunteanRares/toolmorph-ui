@@ -61,6 +61,9 @@ const Navbar = () => {
                         <CustomLink navigateTo="/background-remover">
                             Background Remover
                         </CustomLink>
+                        <CustomLink navigateTo="/object-detection">
+                            Detect Object
+                        </CustomLink>
                         <CustomLink navigateTo="/palette-extractor">
                             Palette Extractor
                         </CustomLink>
